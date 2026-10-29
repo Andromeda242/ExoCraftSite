@@ -348,15 +348,25 @@
         }
 
         /* VIP & Eşya Izgarası */
-        .vip-grid, .items-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-        .vip-card, .item-card { background: rgba(13, 17, 23, 0.9); border: 1px solid #30363d; border-radius: 10px; padding: 22px; text-align: center; transition: 0.3s; }
+        .vip-grid, .items-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+        .vip-card, .item-card { 
+            background: rgba(13, 17, 23, 0.9); 
+            border: 1px solid #30363d; 
+            border-radius: 10px; 
+            padding: 22px; 
+            text-align: center; 
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
         .vip-card:hover, .item-card:hover { border-color: #d4a373; transform: translateY(-4px); }
         
         .item-card { border-color: rgba(168, 85, 247, 0.4); }
         .item-card:hover { border-color: #a855f7; box-shadow: 0 0 15px rgba(168, 85, 247, 0.3); }
         .item-icon { font-size: 2.5rem; color: #a855f7; margin-bottom: 12px; }
         .item-title { font-size: 1.3rem; font-weight: bold; color: #f0f6fc; margin-bottom: 8px; }
-        .item-desc { font-size: 0.9rem; color: #8b949e; margin-bottom: 12px; }
+        .item-desc { font-size: 0.9rem; color: #8b949e; margin-bottom: 12px; flex-grow: 1; }
 
         /* SPONSOR KARTI ÖZEL STİL */
         .vip-card.sponsor-card {
@@ -603,54 +613,62 @@
             <div class="tab-panel">
                 <div class="vip-grid">
                     <div class="vip-card">
-                        <div class="vip-title" style="color: #58a6ff;">VIP</div>
-                        <div class="vip-price">-</div>
-                        <div class="cmd-info">Komut: /kit vip</div>
-                        <ul class="vip-features">
-                            <li><i class="fa-solid fa-check"></i> /fly Komutu</li>
-                            <li><i class="fa-solid fa-check"></i> VIP Kit Paketi</li>
-                            <li><i class="fa-solid fa-check"></i> 3 Adet Sethome</li>
-                            <li><i class="fa-solid fa-wand-magic-sparkles" style="color: #58a6ff;"></i> Özel Efektler (Temel Kosmetikler)</li>
-                        </ul>
+                        <div>
+                            <div class="vip-title" style="color: #58a6ff;">VIP</div>
+                            <div class="vip-price">-</div>
+                            <div class="cmd-info">Komut: /kit vip</div>
+                            <ul class="vip-features">
+                                <li><i class="fa-solid fa-check"></i> /fly Komutu</li>
+                                <li><i class="fa-solid fa-check"></i> VIP Kit Paketi</li>
+                                <li><i class="fa-solid fa-check"></i> 3 Adet Sethome</li>
+                                <li><i class="fa-solid fa-wand-magic-sparkles" style="color: #58a6ff;"></i> Özel Efektler (Temel Kosmetikler)</li>
+                            </ul>
+                        </div>
                         <a href="https://discord.gg/GcnnaXeZ2" target="_blank" class="btn-buy">Satın Al / Alım Yap</a>
                     </div>
                     <div class="vip-card">
-                        <div class="vip-title" style="color: #238636;">VIP+</div>
-                        <div class="vip-price">-</div>
-                        <div class="cmd-info">Komut: /kit vipplus</div>
-                        <ul class="vip-features">
-                            <li><i class="fa-solid fa-check"></i> VIP Özellikleri</li>
-                            <li><i class="fa-solid fa-check"></i> /feed ve /heal</li>
-                            <li><i class="fa-solid fa-check"></i> 5 Adet Sethome</li>
-                            <li><i class="fa-solid fa-wand-magic-sparkles" style="color: #238636;"></i> Özel Efektler & Parçacıklar</li>
-                        </ul>
+                        <div>
+                            <div class="vip-title" style="color: #238636;">VIP+</div>
+                            <div class="vip-price">-</div>
+                            <div class="cmd-info">Komut: /kit vipplus</div>
+                            <ul class="vip-features">
+                                <li><i class="fa-solid fa-check"></i> VIP Özellikleri</li>
+                                <li><i class="fa-solid fa-check"></i> /feed ve /heal</li>
+                                <li><i class="fa-solid fa-check"></i> 5 Adet Sethome</li>
+                                <li><i class="fa-solid fa-wand-magic-sparkles" style="color: #238636;"></i> Özel Efektler & Parçacıklar</li>
+                            </ul>
+                        </div>
                         <a href="https://discord.gg/GcnnaXeZ2" target="_blank" class="btn-buy">Satın Al / Alım Yap</a>
                     </div>
                     <div class="vip-card">
-                        <div class="vip-title" style="color: #f0883e;">MVP</div>
-                        <div class="vip-price">-</div>
-                        <div class="cmd-info">Komut: /kit mvip</div>
-                        <ul class="vip-features">
-                            <li><i class="fa-solid fa-check"></i> VIP+ Özellikleri</li>
-                            <li><i class="fa-solid fa-check"></i> MVP Özel Kit Paketi</li>
-                            <li><i class="fa-solid fa-check"></i> 10 Adet Sethome</li>
-                            <li><i class="fa-solid fa-wand-magic-sparkles" style="color: #f0883e;"></i> Gelişmiş Aura & Özel Efektler</li>
-                        </ul>
+                        <div>
+                            <div class="vip-title" style="color: #f0883e;">MVP</div>
+                            <div class="vip-price">-</div>
+                            <div class="cmd-info">Komut: /kit mvip</div>
+                            <ul class="vip-features">
+                                <li><i class="fa-solid fa-check"></i> VIP+ Özellikleri</li>
+                                <li><i class="fa-solid fa-check"></i> MVP Özel Kit Paketi</li>
+                                <li><i class="fa-solid fa-check"></i> 10 Adet Sethome</li>
+                                <li><i class="fa-solid fa-wand-magic-sparkles" style="color: #f0883e;"></i> Gelişmiş Aura & Özel Efektler</li>
+                            </ul>
+                        </div>
                         <a href="https://discord.gg/GcnnaXeZ2" target="_blank" class="btn-buy">Satın Al / Alım Yap</a>
                     </div>
                     <!-- SPONSOR KARTI -->
                     <div class="vip-card sponsor-card">
-                        <div class="vip-title" style="color: #ffd700;"><i class="fa-solid fa-gem"></i> SPONSOR</div>
-                        <div class="vip-price">-</div>
-                        <div class="cmd-info">Komut: /kit sponsor</div>
-                        <ul class="vip-features">
-                            <li><i class="fa-solid fa-check"></i> Tüm MVP Hakları</li>
-                            <li><i class="fa-solid fa-check"></i> Özel Sponsor Kit Paketi</li>
-                            <li><i class="fa-solid fa-check"></i> Sitede & Oyunda Sponsor Tagı</li>
-                            <li><i class="fa-solid fa-check"></i> Petler & Binekler</li>
-                            <li><i class="fa-solid fa-wand-magic-sparkles" style="color: #ffd700;"></i> Tüm Özel Efektler & Kosmetikler Açık</li>
-                            <li><i class="fa-solid fa-check"></i> Sınırsız Sethome</li>
-                        </ul>
+                        <div>
+                            <div class="vip-title" style="color: #ffd700;"><i class="fa-solid fa-gem"></i> SPONSOR</div>
+                            <div class="vip-price">-</div>
+                            <div class="cmd-info">Komut: /kit sponsor</div>
+                            <ul class="vip-features">
+                                <li><i class="fa-solid fa-check"></i> Tüm MVP Hakları</li>
+                                <li><i class="fa-solid fa-check"></i> Özel Sponsor Kit Paketi</li>
+                                <li><i class="fa-solid fa-check"></i> Sitede & Oyunda Sponsor Tagı</li>
+                                <li><i class="fa-solid fa-check"></i> Petler & Binekler</li>
+                                <li><i class="fa-solid fa-wand-magic-sparkles" style="color: #ffd700;"></i> Tüm Özel Efektler & Kosmetikler Açık</li>
+                                <li><i class="fa-solid fa-check"></i> Sınırsız Sethome</li>
+                            </ul>
+                        </div>
                         <a href="https://discord.gg/GcnnaXeZ2" target="_blank" class="btn-buy" style="background: #d4a373;">Satın Al / Sponsor Ol</a>
                     </div>
                 </div>
@@ -670,28 +688,57 @@
             <div class="tab-panel">
                 <div class="items-grid">
                     <div class="item-card">
-                        <div class="item-icon"><i class="fa-solid fa-feather-pointed"></i></div>
-                        <div class="item-title">Ejderha Elitrası</div>
-                        <p class="item-desc">Özel büyülerle donatılmış, daha yüksek dayanıklılık ve sınırsız süzülme desteği sağlayan nadir elitra.</p>
-                        <div class="cmd-info">Elde Etme: Kasalar / Market</div>
+                        <div>
+                            <div class="item-icon"><i class="fa-solid fa-feather-pointed"></i></div>
+                            <div class="item-title">Normal Elitra</div>
+                            <p class="item-desc">Sunucuda uçmanı sağlayan standart elitra zırhı.</p>
+                            <div class="cmd-info">Elde Etme: Oyun İçi Market / Ejderha</div>
+                        </div>
                     </div>
                     <div class="item-card">
-                        <div class="item-icon" style="color: #ffd700;"><i class="fa-solid fa-shield-halved"></i></div>
-                        <div class="item-title">Ölümsüzlük Totemi</div>
-                        <p class="item-desc">Savaştan ve tuzaklardan sağ çıkmanı sağlayan kalkan totemi. Öldüğünde seni diriltir ve ekstra can verir.</p>
-                        <div class="cmd-info">Elde Etme: Zindanlar / Etkinlikler</div>
+                        <div>
+                            <div class="item-icon" style="color: #ffd700;"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div class="item-title">Ölümsüzlük Totemi</div>
+                            <p class="item-desc">Savaştan ve ölümcül darbelerden seni koruyan, öldüğünde dirilten totem.</p>
+                            <div class="cmd-info">Elde Etme: Satın Alım / Etkinlikler</div>
+                        </div>
+                        <a href="https://discord.gg/GcnnaXeZ2" target="_blank" class="btn-buy">Satın Al / Alım Yap</a>
                     </div>
                     <div class="item-card">
-                        <div class="item-icon" style="color: #3fb950;"><i class="fa-solid fa-key"></i></div>
-                        <div class="item-title">VIP Kasa Anahtarı</div>
-                        <p class="item-desc">Kasalar bölgesinde açarak nadir madenler, özel silahlar ve koruma ekipmanları kazanabileceğin anahtar.</p>
-                        <div class="cmd-info">Elde Etme: /ah & Mağaza</div>
+                        <div>
+                            <div class="item-icon" style="color: #3fb950;"><i class="fa-solid fa-key"></i></div>
+                            <div class="item-title">VIP Kasa Anahtarı</div>
+                            <p class="item-desc">VIP kasasını açarak değerli eşyalar ve özel itemler kazanmanı sağlar.</p>
+                            <div class="cmd-info">Elde Etme: Satın Alım / Discord</div>
+                        </div>
+                        <a href="https://discord.gg/GcnnaXeZ2" target="_blank" class="btn-buy">Satın Al / Alım Yap</a>
                     </div>
                     <div class="item-card">
-                        <div class="item-icon" style="color: #58a6ff;"><i class="fa-solid fa-hammer"></i></div>
-                        <div class="item-title">Efsanevi Kazma</div>
-                        <p class="item-desc">Servet V ve Verimlilik VI büyülü özel kazma. Maden yaparken ekstra blok kırma alanı sağlar.</p>
-                        <div class="cmd-info">Elde Etme: Özel Kasa</div>
+                        <div>
+                            <div class="item-icon" style="color: #ff5555;"><i class="fa-solid fa-ticket"></i></div>
+                            <div class="item-title">Event Kasası Anahtarı</div>
+                            <p class="item-desc">Event kasasını açarak özel etkinlik ödülleri kazanabilirsin.</p>
+                            <div class="cmd-info">Elde Etme: Satın Alım / Eventler</div>
+                        </div>
+                        <a href="https://discord.gg/GcnnaXeZ2" target="_blank" class="btn-buy">Satın Al / Alım Yap</a>
+                    </div>
+                    <div class="item-card">
+                        <div>
+                            <div class="item-icon" style="color: #58a6ff;"><i class="fa-solid fa-hammer"></i></div>
+                            <div class="item-title">Efsanevi Kazma</div>
+                            <p class="item-desc">Servet V ve Verimlilik VI büyülü, madenleri jet hızıyla kıran efsanevi kazma.</p>
+                            <div class="cmd-info">Elde Etme: Satın Alım / Özel Kasa</div>
+                        </div>
+                        <a href="https://discord.gg/GcnnaXeZ2" target="_blank" class="btn-buy">Satın Al / Alım Yap</a>
+                    </div>
+                    <div class="item-card">
+                        <div>
+                            <div class="item-icon" style="color: #ff0055;"><i class="fa-solid fa-dragon"></i></div>
+                            <div class="item-title">Ejderha Seti</div>
+                            <p class="item-desc">Ejderha gücüyle donatılmış, yüksek koruma ve özel efektler veren efsanevi zırh seti.</p>
+                            <div class="cmd-info">Elde Etme: Satın Alım / Discord Mağaza</div>
+                        </div>
+                        <a href="https://discord.gg/GcnnaXeZ2" target="_blank" class="btn-buy">Satın Al / Alım Yap</a>
                     </div>
                 </div>
             </div>
