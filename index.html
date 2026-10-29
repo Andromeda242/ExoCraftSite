@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ExoCraft | Minecraft Server</title>
     
-    <!-- TARAYICI SEKMESİ LOGOSU (FAVICON) - %100 Garantili -->
+    <!-- TARAYICI SEKMESİ LOGOSU (FAVICON) -->
     <link rel="icon" type="image/png" href="https://minotar.net/avatar/MHF_Grass/32.png">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -22,7 +22,7 @@
             position: relative;
         }
 
-        /* Arka Plan Bulanık GERÇEK Minecraft Görseli */
+        /* Arka Plan Bulanık Minecraft Görseli */
         .bg-overlay {
             position: fixed;
             top: 0;
@@ -56,6 +56,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            cursor: pointer;
         }
         .nav-logo img {
             width: 32px;
@@ -110,7 +111,7 @@
         }
         .btn-logout:hover { background: #f85149; }
 
-        /* Header Banner (Sadece Ana Sayfada Görünür) */
+        /* Header Banner */
         header { 
             padding: 35px 20px 30px 20px; 
             text-align: center; 
@@ -298,12 +299,9 @@
         /* Towny Ekranı Yan Yana Kartlar */
         .towny-subnav-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
             margin-top: 20px;
-        }
-        @media (max-width: 768px) {
-            .towny-subnav-grid { grid-template-columns: 1fr; }
         }
 
         .nav-tab-card {
@@ -326,6 +324,9 @@
         .nav-tab-card i { font-size: 3rem; color: #58a6ff; margin-bottom: 15px; }
         .nav-tab-card h3 { font-size: 1.5rem; color: #f0f6fc; }
 
+        /* Özel Eşyalar Kartı Vurgusu */
+        .nav-tab-card.items-card:hover { border-color: #a855f7; box-shadow: 0 8px 25px rgba(168, 85, 247, 0.3); }
+
         /* Detay Sayfası Başlığı & İçeriği */
         .page-title {
             text-align: center;
@@ -346,11 +347,17 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* VIP Paketleri Izgarası */
-        .vip-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        .vip-card { background: rgba(13, 17, 23, 0.9); border: 1px solid #30363d; border-radius: 10px; padding: 22px; text-align: center; transition: 0.3s; }
-        .vip-card:hover { border-color: #d4a373; transform: translateY(-4px); }
+        /* VIP & Eşya Izgarası */
+        .vip-grid, .items-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .vip-card, .item-card { background: rgba(13, 17, 23, 0.9); border: 1px solid #30363d; border-radius: 10px; padding: 22px; text-align: center; transition: 0.3s; }
+        .vip-card:hover, .item-card:hover { border-color: #d4a373; transform: translateY(-4px); }
         
+        .item-card { border-color: rgba(168, 85, 247, 0.4); }
+        .item-card:hover { border-color: #a855f7; box-shadow: 0 0 15px rgba(168, 85, 247, 0.3); }
+        .item-icon { font-size: 2.5rem; color: #a855f7; margin-bottom: 12px; }
+        .item-title { font-size: 1.3rem; font-weight: bold; color: #f0f6fc; margin-bottom: 8px; }
+        .item-desc { font-size: 0.9rem; color: #8b949e; margin-bottom: 12px; }
+
         /* SPONSOR KARTI ÖZEL STİL */
         .vip-card.sponsor-card {
             border: 2px solid #ffd700;
@@ -468,7 +475,7 @@
 
     <!-- Top Navigation -->
     <div class="top-navbar" id="topNavbar">
-        <div class="nav-logo">
+        <div class="nav-logo" onclick="showView('homeView')">
             <img src="https://minotar.net/avatar/MHF_Grass/32.png" alt="ExoCraft Logo">
             ExoCraft
         </div>
@@ -568,6 +575,10 @@
                     <i class="fa-solid fa-crown"></i>
                     <h3>VIP Bilgi</h3>
                 </div>
+                <div class="nav-tab-card items-card" onclick="showView('customItemsView')">
+                    <i class="fa-solid fa-wand-magic-sparkles" style="color: #a855f7;"></i>
+                    <h3 style="color: #f0f6fc;">Özel Eşyalar</h3>
+                </div>
                 <div class="nav-tab-card" onclick="showView('supportDetailView')">
                     <i class="fa-solid fa-headset"></i>
                     <h3>Destek Talebi</h3>
@@ -646,7 +657,47 @@
             </div>
         </div>
 
-        <!-- 4. ÖZEL DETAY EKRANI: DESTEK TALEBİ -->
+        <!-- 4. ÖZEL DETAY EKRANI: ÖZEL EŞYALAR -->
+        <div id="customItemsView" class="view-section">
+            <div class="top-left-bar">
+                <button class="back-btn" onclick="showView('townyView')">
+                    <i class="fa-solid fa-arrow-left"></i> Towny Paneline Dön
+                </button>
+            </div>
+
+            <h2 class="page-title" style="color: #a855f7;"><i class="fa-solid fa-wand-magic-sparkles"></i> Sunucuya Özel Eşyalar</h2>
+
+            <div class="tab-panel">
+                <div class="items-grid">
+                    <div class="item-card">
+                        <div class="item-icon"><i class="fa-solid fa-feather-pointed"></i></div>
+                        <div class="item-title">Ejderha Elitrası</div>
+                        <p class="item-desc">Özel büyülerle donatılmış, daha yüksek dayanıklılık ve sınırsız süzülme desteği sağlayan nadir elitra.</p>
+                        <div class="cmd-info">Elde Etme: Kasalar / Market</div>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-icon" style="color: #ffd700;"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div class="item-title">Ölümsüzlük Totemi</div>
+                        <p class="item-desc">Savaştan ve tuzaklardan sağ çıkmanı sağlayan kalkan totemi. Öldüğünde seni diriltir ve ekstra can verir.</p>
+                        <div class="cmd-info">Elde Etme: Zindanlar / Etkinlikler</div>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-icon" style="color: #3fb950;"><i class="fa-solid fa-key"></i></div>
+                        <div class="item-title">VIP Kasa Anahtarı</div>
+                        <p class="item-desc">Kasalar bölgesinde açarak nadir madenler, özel silahlar ve koruma ekipmanları kazanabileceğin anahtar.</p>
+                        <div class="cmd-info">Elde Etme: /ah & Mağaza</div>
+                    </div>
+                    <div class="item-card">
+                        <div class="item-icon" style="color: #58a6ff;"><i class="fa-solid fa-hammer"></i></div>
+                        <div class="item-title">Efsanevi Kazma</div>
+                        <p class="item-desc">Servet V ve Verimlilik VI büyülü özel kazma. Maden yaparken ekstra blok kırma alanı sağlar.</p>
+                        <div class="cmd-info">Elde Etme: Özel Kasa</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. ÖZEL DETAY EKRANI: DESTEK TALEBİ -->
         <div id="supportDetailView" class="view-section">
             <div class="top-left-bar">
                 <button class="back-btn" onclick="showView('townyView')">
@@ -662,7 +713,7 @@
             </div>
         </div>
 
-        <!-- 5. ÖZEL DETAY EKRANI: KURALLAR -->
+        <!-- 6. ÖZEL DETAY EKRANI: KURALLAR -->
         <div id="rulesDetailView" class="view-section">
             <div class="top-left-bar">
                 <button class="back-btn" onclick="showView('townyView')">
@@ -682,10 +733,10 @@
             </div>
         </div>
 
-        <!-- 6. GİRİŞ VE KAYIT EKRANI -->
+        <!-- 7. GİRİŞ VE KAYIT EKRANI -->
         <div id="authView" class="view-section">
             <div class="top-left-bar">
-                <button class="back-btn" onclick="showView('townyView')">
+                <button class="back-btn" onclick="showView('homeView')">
                     <i class="fa-solid fa-arrow-left"></i> Ana Sayfaya Dön
                 </button>
             </div>
@@ -723,7 +774,7 @@
                         <label><i class="fa-solid fa-lock"></i> Şifre Tekrar</label>
                         <input type="password" id="regPasswordConfirm" class="form-control" placeholder="Şifreni tekrar yaz" required>
                     </div>
-                    <button type="submit" class="btn-auth-submit" style="background: #238636;">Kayıt Ol</button>
+                    <button type="submit" class="btn-auth-submit">Kayıt Ol</button>
                 </form>
             </div>
         </div>
@@ -741,73 +792,55 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             checkUserSession();
-            fetchServerStatus();
-            setInterval(fetchServerStatus, 30000);
-        });
-
-        function fetchServerStatus() {
-            fetch(`https://api.mcstatus.io/v2/status/java/${SERVER_IP}`)
-                .then(response => response.json())
+            
+            // Canlı Sunucu Durumunu Çekme
+            fetch(`https://api.mcsrvstat.us/2/${SERVER_IP}`)
+                .then(res => res.json())
                 .then(data => {
-                    const onlineSpan = document.getElementById("onlinePlayers");
-                    const maxSpan = document.getElementById("maxPlayers");
-
-                    if (data && data.online) {
-                        onlineSpan.innerText = data.players.online;
-                        maxSpan.innerText = data.players.max;
+                    if (data.online) {
+                        document.getElementById('onlinePlayers').innerText = data.players.online;
+                        document.getElementById('maxPlayers').innerText = data.players.max;
                     } else {
-                        onlineSpan.innerText = "0";
+                        document.getElementById('onlinePlayers').innerText = "0";
                     }
                 })
-                .catch(err => {
-                    console.error("Sunucu verisi çekilemedi:", err);
-                    document.getElementById("onlinePlayers").innerText = "0";
+                .catch(() => {
+                    document.getElementById('onlinePlayers').innerText = "0";
                 });
-        }
+        });
 
-        function copyIP() {
-            const ipText = document.getElementById("serverIP").innerText;
-            navigator.clipboard.writeText(ipText).then(() => {
-                showToast("IP Adresi Kopyalandı!");
+        // Sayfa Değiştirme Sistemi
+        function showView(viewId) {
+            document.querySelectorAll('.view-section').forEach(view => {
+                view.classList.remove('active');
             });
-        }
+            const targetView = document.getElementById(viewId);
+            if (targetView) targetView.classList.add('active');
 
-        function showToast(msg) {
-            const toast = document.getElementById("toastMessage");
-            toast.innerText = msg;
-            toast.style.display = "block";
-            setTimeout(() => { toast.style.display = "none"; }, 2500);
-        }
-
-        function showView(targetViewId) {
-            if (targetViewId === 'homeView') {
-                document.getElementById('mainHeader').style.display = 'block';
+            // Header Banner Sadece Ana Sayfada Görünsün
+            const header = document.getElementById('mainHeader');
+            if (viewId === 'homeView') {
+                header.style.display = 'block';
             } else {
-                document.getElementById('mainHeader').style.display = 'none';
-            }
-
-            const sections = document.querySelectorAll('.view-section');
-            sections.forEach(sec => sec.classList.remove('active'));
-
-            const targetSection = document.getElementById(targetViewId);
-            if (targetSection) {
-                targetSection.classList.add('active');
+                header.style.display = 'none';
             }
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function showAuthPage(type) {
+        // Giriş/Kayıt Sayfasını Açma
+        function showAuthPage(tab) {
             showView('authView');
-            toggleAuthForm(type);
+            toggleAuthForm(tab);
         }
 
-        function toggleAuthForm(type) {
+        // Giriş - Kayıt Sekmesi Değişimi
+        function toggleAuthForm(tab) {
             const loginForm = document.getElementById('loginForm');
             const registerForm = document.getElementById('registerForm');
             const tabLoginBtn = document.getElementById('tabLoginBtn');
             const tabRegisterBtn = document.getElementById('tabRegisterBtn');
 
-            if (type === 'login') {
+            if (tab === 'login') {
                 loginForm.style.display = 'block';
                 registerForm.style.display = 'none';
                 tabLoginBtn.classList.add('active');
@@ -820,17 +853,19 @@
             }
         }
 
+        // Kullanıcı Giriş İşlemi
         function handleLogin(e) {
             e.preventDefault();
             const username = document.getElementById('loginUsername').value.trim();
             if (username) {
                 localStorage.setItem('exocraft_user', username);
                 checkUserSession();
-                showToast("Giriş başarılı! Hoş geldin " + username);
+                showToast(`Hoş geldin, ${username}!`);
                 showView('homeView');
             }
         }
 
+        // Kullanıcı Kayıt İşlemi
         function handleRegister(e) {
             e.preventDefault();
             const username = document.getElementById('regUsername').value.trim();
@@ -838,24 +873,19 @@
             const passConfirm = document.getElementById('regPasswordConfirm').value;
 
             if (pass !== passConfirm) {
-                alert("Şifreler uyuşmuyor!");
+                showToast("Şifreler eşleşmiyor!");
                 return;
             }
 
             if (username) {
                 localStorage.setItem('exocraft_user', username);
                 checkUserSession();
-                showToast("Kayıt başarılı! Hoş geldin " + username);
+                showToast(`Hesap oluşturuldu: ${username}`);
                 showView('homeView');
             }
         }
 
-        function logoutUser() {
-            localStorage.removeItem('exocraft_user');
-            checkUserSession();
-            showToast("Çıkış yapıldı.");
-        }
-
+        // Oturum Kontrolü
         function checkUserSession() {
             const currentUser = localStorage.getItem('exocraft_user');
             const guestNavBtns = document.getElementById('guestNavBtns');
@@ -872,6 +902,29 @@
                 guestNavBtns.style.display = 'flex';
                 userProfileBadge.style.display = 'none';
             }
+        }
+
+        // Çıkış Yapma
+        function logoutUser() {
+            localStorage.removeItem('exocraft_user');
+            checkUserSession();
+            showToast("Çıkış yapıldı.");
+        }
+
+        // IP Kopyalama
+        function copyIP() {
+            navigator.clipboard.writeText(SERVER_IP);
+            showToast("IP Kopyalandı!");
+        }
+
+        // Bildirim (Toast) Gösterme
+        function showToast(msg) {
+            const toast = document.getElementById('toastMessage');
+            toast.innerText = msg;
+            toast.style.display = 'block';
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 2500);
         }
     </script>
 </body>
