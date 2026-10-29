@@ -324,7 +324,6 @@
         .nav-tab-card i { font-size: 3rem; color: #58a6ff; margin-bottom: 15px; }
         .nav-tab-card h3 { font-size: 1.5rem; color: #f0f6fc; }
 
-        /* Özel Eşyalar Kartı Vurgusu */
         .nav-tab-card.items-card:hover { border-color: #a855f7; box-shadow: 0 8px 25px rgba(168, 85, 247, 0.3); }
 
         /* Detay Sayfası Başlığı & İçeriği */
@@ -347,13 +346,13 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
-        /* VIP & Eşya Izgarası */
-        .vip-grid, .items-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+        /* VIP & Eşya Izgarası (Çakışmayı Önleyen Boşluklu Tasarım) */
+        .vip-grid, .items-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
         .vip-card, .item-card { 
             background: rgba(13, 17, 23, 0.9); 
             border: 1px solid #30363d; 
-            border-radius: 10px; 
-            padding: 22px; 
+            border-radius: 12px; 
+            padding: 24px; 
             text-align: center; 
             transition: 0.3s;
             display: flex;
@@ -362,11 +361,12 @@
         }
         .vip-card:hover, .item-card:hover { border-color: #d4a373; transform: translateY(-4px); }
         
-        .item-card { border-color: rgba(168, 85, 247, 0.4); }
-        .item-card:hover { border-color: #a855f7; box-shadow: 0 0 15px rgba(168, 85, 247, 0.3); }
-        .item-icon { font-size: 2.5rem; color: #a855f7; margin-bottom: 12px; }
-        .item-title { font-size: 1.3rem; font-weight: bold; color: #f0f6fc; margin-bottom: 8px; }
-        .item-desc { font-size: 0.9rem; color: #8b949e; margin-bottom: 12px; flex-grow: 1; }
+        .item-card { border-color: rgba(168, 85, 247, 0.3); }
+        .item-card:hover { border-color: #a855f7; box-shadow: 0 0 20px rgba(168, 85, 247, 0.25); }
+        
+        .item-icon { font-size: 2.8rem; margin-bottom: 12px; }
+        .item-title { font-size: 1.35rem; font-weight: bold; color: #f0f6fc; margin-bottom: 8px; }
+        .item-desc { font-size: 0.9rem; color: #8b949e; margin-bottom: 15px; flex-grow: 1; }
 
         /* SPONSOR KARTI ÖZEL STİL */
         .vip-card.sponsor-card {
@@ -392,15 +392,32 @@
             padding: 6px 10px;
             font-size: 0.8rem;
             color: #d4a373;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             font-family: monospace;
         }
 
-        .btn-buy { display: block; width: 100%; padding: 10px; background: #238636; color: #fff; text-decoration: none; border-radius: 6px; font-weight: bold; transition: 0.2s; text-align: center; }
-        .btn-buy:hover { background: #2ea043; }
+        /* Hafif Merkezden Dışa Azalan Neon Glow Efekti (Çakışma Yapmaz) */
+        .btn-buy { 
+            display: block; 
+            width: 100%; 
+            padding: 11px; 
+            background: #238636; 
+            color: #fff; 
+            text-decoration: none; 
+            border-radius: 6px; 
+            font-weight: bold; 
+            transition: 0.3s; 
+            text-align: center;
+            box-shadow: 0 0 8px rgba(35, 134, 54, 0.4), inset 0 0 4px rgba(255, 255, 255, 0.2);
+        }
+        .btn-buy:hover { 
+            background: #2ea043; 
+            box-shadow: 0 0 16px rgba(46, 160, 67, 0.7), inset 0 0 6px rgba(255, 255, 255, 0.4);
+            transform: scale(1.02);
+        }
 
-        .btn-discord { display: inline-block; background: #5865F2; color: #fff; padding: 12px 25px; border-radius: 6px; font-weight: bold; text-decoration: none; transition: 0.3s; margin-top: 15px; }
-        .btn-discord:hover { background: #4752c4; }
+        .btn-discord { display: inline-block; background: #5865F2; color: #fff; padding: 12px 25px; border-radius: 6px; font-weight: bold; text-decoration: none; transition: 0.3s; margin-top: 15px; box-shadow: 0 0 10px rgba(88, 101, 242, 0.4); }
+        .btn-discord:hover { background: #4752c4; box-shadow: 0 0 18px rgba(88, 101, 242, 0.7); }
 
         /* GİRİŞ VE KAYIT EKRANI STİLLERİ */
         .auth-container {
@@ -471,11 +488,12 @@
             cursor: pointer;
             transition: 0.2s;
             margin-top: 10px;
+            box-shadow: 0 0 8px rgba(35, 134, 54, 0.4);
         }
-        .btn-auth-submit:hover { background: #2ea043; }
+        .btn-auth-submit:hover { background: #2ea043; box-shadow: 0 0 16px rgba(46, 160, 67, 0.7); }
 
         footer { text-align: center; padding: 25px; color: #8b949e; border-top: 1px solid rgba(48, 54, 61, 0.8); margin-top: 40px; font-size: 0.9rem; background: rgba(13, 17, 23, 0.85); backdrop-filter: blur(8px); position: relative; z-index: 2; }
-        .toast { position: fixed; bottom: 20px; right: 20px; background: #238636; color: #fff; padding: 12px 24px; border-radius: 6px; display: none; z-index: 1000; font-weight: bold; }
+        .toast { position: fixed; bottom: 20px; right: 20px; background: #238636; color: #fff; padding: 12px 24px; border-radius: 6px; display: none; z-index: 1000; font-weight: bold; box-shadow: 0 0 12px rgba(35, 134, 54, 0.6); }
     </style>
 </head>
 <body>
@@ -492,8 +510,8 @@
         
         <!-- Misafir Butonları -->
         <div class="auth-nav-btns" id="guestNavBtns">
-            <button class="btn-nav-auth" onclick="showAuthPage('login')"><i class="fa-solid fa-right-to-bracket"></i> Giriş Yap</button>
-            <button class="btn-nav-auth btn-nav-register" onclick="showAuthPage('register')"><i class="fa-solid fa-user-plus"></i> Kayıt Ol</button>
+            <button class="btn-nav-auth" onclick="showAuthPage('login')"><i class="fa-solid fa-right-to-bracket" style="color: #58a6ff;"></i> Giriş Yap</button>
+            <button class="btn-nav-auth btn-nav-register" onclick="showAuthPage('register')"><i class="fa-solid fa-user-plus" style="color: #3fb950;"></i> Kayıt Ol</button>
         </div>
 
         <!-- Giriş Yapılmış Profil Rozeti -->
@@ -518,15 +536,15 @@
             </div>
             <!-- CANLI OYUNCU SAYISI KISMI -->
             <div class="status-badge" style="color: #58a6ff;">
-                <i class="fa-solid fa-users"></i> Aktif: <span id="onlinePlayers">...</span> / <span id="maxPlayers">100</span>
+                <i class="fa-solid fa-users" style="color: #58a6ff;"></i> Aktif: <span id="onlinePlayers">...</span> / <span id="maxPlayers">100</span>
             </div>
             <div class="status-badge" style="color: #d4a373;">
-                <i class="fa-solid fa-code-branch"></i> Sürüm: 1.20.x
+                <i class="fa-solid fa-code-branch" style="color: #d4a373;"></i> Sürüm: 1.20.x
             </div>
         </div>
         <div class="ip-box" onclick="copyIP()">
             <span id="serverIP">exocraft.mcsh.gg</span>
-            <i class="fa-solid fa-copy"></i>
+            <i class="fa-solid fa-copy" style="color: #3fb950;"></i>
         </div>
     </header>
 
@@ -536,7 +554,7 @@
         <div id="homeView" class="view-section active">
             <div class="home-center">
                 <div class="square-towny-btn" onclick="showView('townyView')">
-                    <i class="fa-solid fa-landmark"></i>
+                    <i class="fa-solid fa-landmark" style="color: #d4a373; text-shadow: 0 0 10px rgba(212, 163, 115, 0.5);"></i>
                     <span>TOWNY</span>
                 </div>
             </div>
@@ -582,19 +600,19 @@
 
             <div class="towny-subnav-grid">
                 <div class="nav-tab-card" onclick="showView('vipDetailView')">
-                    <i class="fa-solid fa-crown"></i>
+                    <i class="fa-solid fa-crown" style="color: #ffd700; text-shadow: 0 0 12px rgba(255, 215, 0, 0.5);"></i>
                     <h3>VIP Bilgi</h3>
                 </div>
                 <div class="nav-tab-card items-card" onclick="showView('customItemsView')">
-                    <i class="fa-solid fa-wand-magic-sparkles" style="color: #a855f7;"></i>
+                    <i class="fa-solid fa-wand-magic-sparkles" style="color: #c084fc; text-shadow: 0 0 12px rgba(192, 132, 252, 0.5);"></i>
                     <h3 style="color: #f0f6fc;">Özel Eşyalar</h3>
                 </div>
                 <div class="nav-tab-card" onclick="showView('supportDetailView')">
-                    <i class="fa-solid fa-headset"></i>
+                    <i class="fa-solid fa-headset" style="color: #5865F2; text-shadow: 0 0 12px rgba(88, 101, 242, 0.5);"></i>
                     <h3>Destek Talebi</h3>
                 </div>
                 <div class="nav-tab-card" onclick="showView('rulesDetailView')">
-                    <i class="fa-solid fa-book-open"></i>
+                    <i class="fa-solid fa-book-open" style="color: #3fb950; text-shadow: 0 0 12px rgba(63, 185, 80, 0.5);"></i>
                     <h3>Kurallar</h3>
                 </div>
             </div>
@@ -608,7 +626,7 @@
                 </button>
             </div>
             
-            <h2 class="page-title"><i class="fa-solid fa-crown"></i> VIP Bilgi & Paketler</h2>
+            <h2 class="page-title"><i class="fa-solid fa-crown" style="color: #ffd700;"></i> VIP Bilgi & Paketler</h2>
 
             <div class="tab-panel">
                 <div class="vip-grid">
@@ -657,7 +675,7 @@
                     <!-- SPONSOR KARTI -->
                     <div class="vip-card sponsor-card">
                         <div>
-                            <div class="vip-title" style="color: #ffd700;"><i class="fa-solid fa-gem"></i> SPONSOR</div>
+                            <div class="vip-title" style="color: #ffd700;"><i class="fa-solid fa-gem" style="color: #ffd700;"></i> SPONSOR</div>
                             <div class="vip-price">-</div>
                             <div class="cmd-info">Komut: /kit sponsor</div>
                             <ul class="vip-features">
@@ -669,7 +687,7 @@
                                 <li><i class="fa-solid fa-check"></i> Sınırsız Sethome</li>
                             </ul>
                         </div>
-                        <a href="https://discord.gg/GcnnaXeZ2" target="_blank" class="btn-buy" style="background: #d4a373;">Satın Al / Sponsor Ol</a>
+                        <a href="https://discord.gg/GcnnaXeZ2" target="_blank" class="btn-buy" style="background: #d4a373; box-shadow: 0 0 8px rgba(212, 163, 115, 0.4);">Satın Al / Sponsor Ol</a>
                     </div>
                 </div>
             </div>
@@ -683,22 +701,22 @@
                 </button>
             </div>
 
-            <h2 class="page-title" style="color: #a855f7;"><i class="fa-solid fa-wand-magic-sparkles"></i> Sunucuya Özel Eşyalar</h2>
+            <h2 class="page-title" style="color: #c084fc;"><i class="fa-solid fa-wand-magic-sparkles" style="color: #c084fc;"></i> Sunucuya Özel Eşyalar</h2>
 
             <div class="tab-panel">
                 <div class="items-grid">
                     <div class="item-card">
                         <div>
-                            <div class="item-icon"><i class="fa-solid fa-feather-pointed"></i></div>
+                            <div class="item-icon"><i class="fa-solid fa-feather-pointed" style="color: #38bdf8; text-shadow: 0 0 12px rgba(56, 189, 248, 0.5);"></i></div>
                             <div class="item-title">Elitra</div>
                             <p class="item-desc">Sunucuda özgürce uçmanı sağlayan efsanevi süzülme zırhı.</p>
-                            <div class="cmd-info">Elde Etme: Satın Alım / Oyun İçi</div>
+                            <div class="cmd-info">Elde Etme: Satın Alım / Discord</div>
                         </div>
                         <a href="https://discord.gg/GcnnaXeZ2" target="_blank" class="btn-buy">Satın Al / Alım Yap</a>
                     </div>
                     <div class="item-card">
                         <div>
-                            <div class="item-icon" style="color: #ffd700;"><i class="fa-solid fa-shield-halved"></i></div>
+                            <div class="item-icon"><i class="fa-solid fa-shield-halved" style="color: #fbbf24; text-shadow: 0 0 12px rgba(251, 191, 36, 0.5);"></i></div>
                             <div class="item-title">Ölümsüzlük Totemi</div>
                             <p class="item-desc">Savaştan ve ölümcül darbelerden seni koruyan, öldüğünde dirilten totem.</p>
                             <div class="cmd-info">Elde Etme: Satın Alım / Etkinlikler</div>
@@ -707,7 +725,7 @@
                     </div>
                     <div class="item-card">
                         <div>
-                            <div class="item-icon" style="color: #3fb950;"><i class="fa-solid fa-key"></i></div>
+                            <div class="item-icon"><i class="fa-solid fa-key" style="color: #34d399; text-shadow: 0 0 12px rgba(52, 211, 153, 0.5);"></i></div>
                             <div class="item-title">VIP Kasa Anahtarı</div>
                             <p class="item-desc">VIP kasasını açarak değerli eşyalar ve özel itemler kazanmanı sağlar.</p>
                             <div class="cmd-info">Elde Etme: Satın Alım / Discord</div>
@@ -716,7 +734,7 @@
                     </div>
                     <div class="item-card">
                         <div>
-                            <div class="item-icon" style="color: #ff5555;"><i class="fa-solid fa-ticket"></i></div>
+                            <div class="item-icon"><i class="fa-solid fa-ticket" style="color: #f87171; text-shadow: 0 0 12px rgba(248, 113, 113, 0.5);"></i></div>
                             <div class="item-title">Event Kasası Anahtarı</div>
                             <p class="item-desc">Event kasasını açarak özel etkinlik ödülleri kazanabilirsin.</p>
                             <div class="cmd-info">Elde Etme: Satın Alım / Eventler</div>
@@ -725,7 +743,7 @@
                     </div>
                     <div class="item-card">
                         <div>
-                            <div class="item-icon" style="color: #58a6ff;"><i class="fa-solid fa-hammer"></i></div>
+                            <div class="item-icon"><i class="fa-solid fa-hammer" style="color: #60a5fa; text-shadow: 0 0 12px rgba(96, 165, 250, 0.5);"></i></div>
                             <div class="item-title">Efsanevi Kazma</div>
                             <p class="item-desc">Servet V ve Verimlilik VI büyülü, madenleri jet hızıyla kıran efsanevi kazma.</p>
                             <div class="cmd-info">Elde Etme: Satın Alım / Özel Kasa</div>
@@ -734,7 +752,7 @@
                     </div>
                     <div class="item-card">
                         <div>
-                            <div class="item-icon" style="color: #ff0055;"><i class="fa-solid fa-dragon"></i></div>
+                            <div class="item-icon"><i class="fa-solid fa-dragon" style="color: #f472b6; text-shadow: 0 0 12px rgba(244, 114, 182, 0.5);"></i></div>
                             <div class="item-title">Ejderha Seti</div>
                             <p class="item-desc">Ejderha gücüyle donatılmış, yüksek koruma ve özel efektler veren efsanevi zırh seti.</p>
                             <div class="cmd-info">Elde Etme: Satın Alım / Discord Mağaza</div>
@@ -753,7 +771,7 @@
                 </button>
             </div>
 
-            <h2 class="page-title"><i class="fa-solid fa-headset"></i> Destek Talebi</h2>
+            <h2 class="page-title"><i class="fa-solid fa-headset" style="color: #5865F2;"></i> Destek Talebi</h2>
 
             <div class="tab-panel" style="text-align: center;">
                 <p style="font-size: 1.1rem; color: #8b949e;">Oyun içi teknik sorunlar, oyuncu şikayetleri veya VIP satın alımları için Discord destek sunucumuz üzerinden bilet oluşturabilirsiniz.</p>
@@ -769,7 +787,7 @@
                 </button>
             </div>
 
-            <h2 class="page-title"><i class="fa-solid fa-book-open"></i> Sunucu Kuralları</h2>
+            <h2 class="page-title"><i class="fa-solid fa-book-open" style="color: #3fb950;"></i> Sunucu Kuralları</h2>
 
             <div class="tab-panel">
                 <ul style="list-style: none;">
@@ -798,11 +816,11 @@
                 <!-- GİRİŞ FORMU -->
                 <form id="loginForm" onsubmit="handleLogin(event)">
                     <div class="form-group">
-                        <label><i class="fa-solid fa-user"></i> Oyuncu Adı</label>
+                        <label><i class="fa-solid fa-user" style="color: #58a6ff;"></i> Oyuncu Adı</label>
                         <input type="text" id="loginUsername" class="form-control" placeholder="Minecraft kullanıcı adın" required>
                     </div>
                     <div class="form-group">
-                        <label><i class="fa-solid fa-lock"></i> Şifre</label>
+                        <label><i class="fa-solid fa-lock" style="color: #f87171;"></i> Şifre</label>
                         <input type="password" id="loginPassword" class="form-control" placeholder="••••••••" required>
                     </div>
                     <button type="submit" class="btn-auth-submit">Giriş Yap</button>
@@ -811,15 +829,15 @@
                 <!-- KAYIT FORMU -->
                 <form id="registerForm" style="display: none;" onsubmit="handleRegister(event)">
                     <div class="form-group">
-                        <label><i class="fa-solid fa-user"></i> Oyuncu Adı</label>
+                        <label><i class="fa-solid fa-user" style="color: #58a6ff;"></i> Oyuncu Adı</label>
                         <input type="text" id="regUsername" class="form-control" placeholder="Oyundaki kullanıcı adın" required>
                     </div>
                     <div class="form-group">
-                        <label><i class="fa-solid fa-lock"></i> Şifre</label>
+                        <label><i class="fa-solid fa-lock" style="color: #f87171;"></i> Şifre</label>
                         <input type="password" id="regPassword" class="form-control" placeholder="Şifren" required>
                     </div>
                     <div class="form-group">
-                        <label><i class="fa-solid fa-lock"></i> Şifre Tekrar</label>
+                        <label><i class="fa-solid fa-lock" style="color: #f87171;"></i> Şifre Tekrar</label>
                         <input type="password" id="regPasswordConfirm" class="form-control" placeholder="Şifreni tekrar yaz" required>
                     </div>
                     <button type="submit" class="btn-auth-submit">Kayıt Ol</button>
