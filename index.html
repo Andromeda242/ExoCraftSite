@@ -82,6 +82,8 @@
             gap: 6px;
         }
         .btn-nav-auth:hover { background: #30363d; color: #fff; border-color: #58a6ff; }
+        .btn-nav-items { background: rgba(168, 85, 247, 0.2); color: #c084fc; border-color: #a855f7; }
+        .btn-nav-items:hover { background: #a855f7; color: #fff; border-color: #a855f7; }
         .btn-nav-register { background: #238636; color: #fff; border-color: #238636; }
         .btn-nav-register:hover { background: #2ea043; border-color: #2ea043; }
 
@@ -490,14 +492,16 @@
             ExoCraft
         </div>
         
-        <!-- Misafir Butonları -->
+        <!-- Üst Menüdeki Özel Eşyalar ve Misafir Butonları -->
         <div class="auth-nav-btns" id="guestNavBtns">
+            <button class="btn-nav-auth btn-nav-items" onclick="showView('customItemsView')"><i class="fa-solid fa-wand-magic-sparkles"></i> Özel Eşyalar</button>
             <button class="btn-nav-auth" onclick="showAuthPage('login')"><i class="fa-solid fa-right-to-bracket"></i> Giriş Yap</button>
             <button class="btn-nav-auth btn-nav-register" onclick="showAuthPage('register')"><i class="fa-solid fa-user-plus"></i> Kayıt Ol</button>
         </div>
 
         <!-- Giriş Yapılmış Profil Rozeti -->
         <div class="user-profile-badge" id="userProfileBadge">
+            <button class="btn-nav-auth btn-nav-items" onclick="showView('customItemsView')" style="margin-right: 10px;"><i class="fa-solid fa-wand-magic-sparkles"></i> Özel Eşyalar</button>
             <img src="https://minotar.net/avatar/MHF_Steve/26.png" id="userAvatar" class="user-avatar" alt="Avatar">
             <span class="username-display" id="userNameDisplay">Oyuncu</span>
             <button class="btn-logout" onclick="logoutUser()"><i class="fa-solid fa-right-from-bracket"></i> Çıkış</button>
@@ -678,8 +682,8 @@
         <!-- 4. ÖZEL DETAY EKRANI: ÖZEL EŞYALAR -->
         <div id="customItemsView" class="view-section">
             <div class="top-left-bar">
-                <button class="back-btn" onclick="showView('townyView')">
-                    <i class="fa-solid fa-arrow-left"></i> Towny Paneline Dön
+                <button class="back-btn" onclick="showView('homeView')">
+                    <i class="fa-solid fa-arrow-left"></i> Ana Sayfaya Dön
                 </button>
             </div>
 
